@@ -6,6 +6,7 @@ const wonMessage = "*** YOU WON - CONGRATULATIONS ***"
 const messageDisplay = document.getElementById("message");
 let squares = []
 let score = 0
+let timer;
 
 //28 * 28 = 784
   // 0 - pac-dots
@@ -137,8 +138,9 @@ function powerPelletEaten() {
 
     //change each of the four ghosts to isScared
     ghosts.forEach(ghost => ghost.isScared = true)
-    //use setTimeout to unscare ghosts after 10 seconds     
-    setTimeout(unScareGhosts, 10000)   
+    //use setTimeout to unscare ghosts after 10 seconds
+    clearTimeout(timer)
+        timer = setTimeout(unScareGhosts, 10000)
     }
 }
 
